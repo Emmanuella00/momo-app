@@ -12,3 +12,5 @@ Our goal is to build an innovative mobile money application that streamlines pay
 1. Anglebert Shumbusho Ishimwe
 2. Faith Irakoze
 3. Emmanuella Ikirezi
+
+Link to Trello: https://trello.com/invite/b/68bd80c0bef1fa7195b4f7ac/ATTI9dbb148f7b33f00a956984636b53283fD2682473/momo-sms-project-board
