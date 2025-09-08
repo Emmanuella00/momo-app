@@ -14,3 +14,4 @@ Our goal is to build an innovative mobile money application that streamlines pay
 3. Emmanuella Ikirezi
 
 Link to Trello: https://trello.com/invite/b/68bd80c0bef1fa7195b4f7ac/ATTI9dbb148f7b33f00a956984636b53283fD2682473/momo-sms-project-board
+Link to the System Architectural Design: https://drive.google.com/file/d/1Vys0YKsciS894s9Dt-00K0OC75B0JQej/view?usp=sharing
