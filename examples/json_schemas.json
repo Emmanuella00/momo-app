@@ -1,0 +1,147 @@
+ {
+  "documentation": {
+    "overview": "This file defines JSON schemas, sample data, and mappings between SQL tables and JSON structures for the mobile transaction system.",
+    "sections": [
+      "Schemas: Describes structure and data types for each table when serialized to JSON.",
+      "Examples: Provides simple JSON data instances for each entity.",
+      "Complex Transaction Example: Demonstrates how a full transaction is represented with nested objects.",
+      "Mapping Notes: Explains how SQL tables map to JSON representation."
+    ]
+  },
+  "schemas": {
+    "Sender": {
+      "sender_id": "integer",
+      "name": "string",
+      "phone_number": "string"
+    },
+    "Receiver": {
+      "receiver_id": "integer",
+      "account_owner": "string",
+      "phone_number": "string"
+    },
+    "SMS": {
+      "sms_id": "integer",
+      "date": "string (ISO 8601 datetime)",
+      "body": "string",
+      "address": "string",
+      "readable_date": "string (ISO 8601 datetime)",
+      "service_center": "string",
+      "status": "string"
+    },
+    "TransactionCategory": {
+      "category_id": "integer",
+      "category_name": "string",
+      "description": "string"
+    },
+    "SystemLog": {
+      "log_id": "integer",
+      "log_date": "string (ISO 8601 datetime)",
+      "log_level": "string",
+      "message": "string"
+    },
+    "Transaction": {
+      "transaction_id": "integer",
+      "amount": "decimal",
+      "transaction_date": "string (ISO 8601 datetime)",
+      "balance": "decimal",
+      "sender_message": "string",
+      "sms": { "sms_id": "integer", "body": "string" },
+      "sender": { "sender_id": "integer", "name": "string" },
+      "receiver": { "receiver_id": "integer", "account_owner": "string" },
+      "categories": [
+        { "category_id": "integer", "category_name": "string" }
+      ],
+      "logs": [
+        { "log_id": "integer", "log_level": "string", "message": "string" }
+      ]
+    }
+  },
+  "examples": {
+    "Sender": {
+      "sender_id": 1,
+      "name": "Alice",
+      "phone_number": "+250788123456"
+    },
+    "Receiver": {
+      "receiver_id": 2,
+      "account_owner": "Bob",
+      "phone_number": "+250722987654"
+    },
+    "SMS": {
+      "sms_id": 10,
+      "date": "2025-09-15T08:30:00Z",
+      "body": "You sent 5000 RWF to Bob",
+      "address": "MTN",
+      "readable_date": "2025-09-15T08:30:00Z",
+      "service_center": "MTN Rwanda",
+      "status": "delivered"
+    },
+    "TransactionCategory": {
+      "category_id": 1,
+      "category_name": "Money Transfer",
+      "description": "Peer-to-peer mobile transfer"
+    },
+    "SystemLog": {
+      "log_id": 101,
+      "log_date": "2025-09-15T08:31:00Z",
+      "log_level": "INFO",
+      "message": "Transaction processed successfully"
+    }
+  },
+  "complex_transaction_example": {
+    "transaction_id": 5001,
+    "amount": 5000.00,
+    "transaction_date": "2025-09-15T08:30:00Z",
+    "balance": 20000.00,
+    "sender_message": "You sent 5000 RWF to Bob",
+    "sms": {
+      "sms_id": 10,
+      "date": "2025-09-15T08:30:00Z",
+      "body": "You sent 5000 RWF to Bob",
+      "address": "MTN",
+      "readable_date": "2025-09-15T08:30:00Z",
+      "service_center": "MTN Rwanda",
+      "status": "delivered"
+    },
+    "sender": {
+      "sender_id": 1,
+      "name": "Alice",
+      "phone_number": "+250788123456"
+    },
+    "receiver": {
+      "receiver_id": 2,
+      "account_owner": "Bob",
+      "phone_number": "+250722987654"
+    },
+    "categories": [
+      {
+        "category_id": 1,
+        "category_name": "Money Transfer",
+        "description": "Peer-to-peer mobile transfer"
+      }
+    ],
+    "logs": [
+      {
+        "log_id": 101,
+        "log_date": "2025-09-15T08:31:00Z",
+        "log_level": "INFO",
+        "message": "Transaction processed successfully"
+      },
+      {
+        "log_id": 102,
+        "log_date": "2025-09-15T08:31:30Z",
+        "log_level": "INFO",
+        "message": "SMS delivered to receiver"
+      }
+    ]
+  },
+  "mapping_notes": {
+    "sender": "Serialized as 'sender' object inside transaction.",
+    "receiver": "Serialized as 'receiver' object inside transaction.",
+    "sms": "Serialized as 'sms' object inside transaction.",
+    "transaction_category": "Serialized as 'categories' array inside transaction, due to many-to-many relationship.",
+    "transaction_category_map": "Intermediate SQL mapping table, not represented directly in JSON.",
+    "transaction": "Serialized as the root object in API response, containing all nested entities.",
+    "system_logs": "Serialized as 'logs' array of log objects inside transaction."
+  }
+}
