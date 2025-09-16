@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `receiver`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `receiver` (
   `receiver_id` int NOT NULL AUTO_INCREMENT,
-  `account_owner` varchar(191) DEFAULT NULL,
+  `account_owner` varchar(255) DEFAULT NULL,
   `phone_number` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`receiver_id`),
   UNIQUE KEY `phone_number` (`phone_number`)
@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS `sender`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sender` (
   `sender_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `phone_number` varchar(32) NOT NULL,
   PRIMARY KEY (`sender_id`),
   UNIQUE KEY `phone_number` (`phone_number`)
@@ -58,9 +58,9 @@ CREATE TABLE `sms` (
   `sms_id` int NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
   `body` text NOT NULL,
-  `address` varchar(191) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `readable_date` datetime DEFAULT NULL,
-  `service_center` varchar(191) DEFAULT NULL,
+  `service_center` varchar(255) DEFAULT NULL,
   `status` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`sms_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
