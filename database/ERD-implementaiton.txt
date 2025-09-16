@@ -1,0 +1,59 @@
+CREATE TABLE sms (
+  sms_id INT AUTO_INCREMENT PRIMARY KEY,
+  date DATETIME NOT NULL,
+  body TEXT NOT NULL,
+  address VARCHAR(191),
+  readable_date DATETIME,
+  service_center VARCHAR(191),
+  status VARCHAR(64)
+);
+
+CREATE TABLE sender (
+  sender_id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(191),
+  phone_number VARCHAR(32) NOT NULL UNIQUE
+);
+
+CREATE TABLE receiver (
+  receiver_id INT AUTO_INCREMENT PRIMARY KEY,
+  account_owner VARCHAR(191),
+  phone_number VARCHAR(32) UNIQUE
+);
+
+CREATE TABLE transaction_category (
+  category_id INT AUTO_INCREMENT PRIMARY KEY,
+  category_name VARCHAR(128) NOT NULL UNIQUE,
+  description VARCHAR(255)
+);
+
+CREATE TABLE transaction (
+  transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+  amount DECIMAL(19,4) NOT NULL,
+  transaction_date DATETIME NOT NULL,
+  balance DECIMAL(19,4),
+  sender_message TEXT,
+  sms_id INT,
+  sender_id INT,
+  receiver_id INT,
+  FOREIGN KEY (sms_id) REFERENCES sms(sms_id),
+  FOREIGN KEY (sender_id) REFERENCES sender(sender_id),
+  FOREIGN KEY (receiver_id) REFERENCES receiver(receiver_id),
+  UNIQUE (sms_id)
+);
+
+CREATE TABLE transaction_category_map (
+  transaction_id INT NOT NULL,
+  category_id INT NOT NULL,
+  PRIMARY KEY (transaction_id, category_id),
+  FOREIGN KEY (transaction_id) REFERENCES transaction(transaction_id),
+  FOREIGN KEY (category_id) REFERENCES transaction_category(category_id)
+);
+
+CREATE TABLE system_logs (
+  log_id INT AUTO_INCREMENT PRIMARY KEY,
+  log_date DATETIME NOT NULL,
+  log_level VARCHAR(32) NOT NULL,
+  message TEXT NOT NULL,
+  transaction_id INT,
+  FOREIGN KEY (transaction_id) REFERENCES transaction(transaction_id)
+);
