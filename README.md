@@ -10,6 +10,7 @@ Our goal is to build an innovative mobile money application that streamlines pay
 
 # Database Documentation
 1. ERD Design
+
 The ERD highlights clear relationships between senders, receivers, SMS messages, and transactions.
     - Sender: Represents the individual sending money.
     - Receiver: Represents the individual receiving money.
@@ -18,6 +19,7 @@ The ERD highlights clear relationships between senders, receivers, SMS messages,
     - System Logs: Handles system activity and errors.
 
 2. Design Rationale
+
 The design considerations ensure data integrity and cover MoMo’s key use cases.
 
     - “Foreign key” property enforces the validity of relationships (e.g., a transaction must belong to an SMS).
