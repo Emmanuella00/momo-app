@@ -35,3 +35,8 @@ The design considerations ensure data integrity and cover MoMo’s key use cases
 # Links
 1. Link to Trello: https://trello.com/b/xtrQvdRf/momo-sms-project-board
 2. Link to the System Architectural Design: https://drive.google.com/file/d/1Vys0YKsciS894s9Dt-00K0OC75B0JQej/view?usp=sharing
+
+### AI Assistance
+- AI was used to check SQL queries for correct syntax.
+- AI was used to gather references on indexing,     constraints, and optimization.
+- AI was used to review and polish our project documentation for clarity and readability.
