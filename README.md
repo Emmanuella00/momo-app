@@ -23,11 +23,8 @@ The ERD highlights clear relationships between senders, receivers, SMS messages,
 The design considerations ensure data integrity and cover MoMo’s key use cases.
 
 - “Foreign key” property enforces the validity of relationships (e.g., a transaction must belong to an SMS).
-
 - Check constraints ensure data accuracy (e.g., the amount is positive, the balance is not negative).
-
 - The separation of sender, receiver, and SMS makes the system scalable because one SMS can trigger several transactions.
-
 - The log table ensures system auditability, which is critical for financial systems.
 
 # Team Members
