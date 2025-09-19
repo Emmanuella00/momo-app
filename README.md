@@ -12,23 +12,23 @@ Our goal is to build an innovative mobile money application that streamlines pay
 1. ERD Design
 
 The ERD highlights clear relationships between senders, receivers, SMS messages, and transactions.
-    - Sender: Represents the individual sending money.
-    - Receiver: Represents the individual receiving money.
-    - SMS: Stores messages, dates, and statuses of transactions.
-    - Transaction: Handles financial details.
-    - System Logs: Handles system activity and errors.
+- Sender: Represents the individual sending money.
+- Receiver: Represents the individual receiving money.
+- SMS: Stores messages, dates, and statuses of transactions.
+- Transaction: Handles financial details.
+- System Logs: Handles system activity and errors.
 
 2. Design Rationale
 
 The design considerations ensure data integrity and cover MoMo’s key use cases.
 
-    - “Foreign key” property enforces the validity of relationships (e.g., a transaction must belong to an SMS).
+- “Foreign key” property enforces the validity of relationships (e.g., a transaction must belong to an SMS).
 
-    - Check constraints ensure data accuracy (e.g., the amount is positive, the balance is not negative).
+- Check constraints ensure data accuracy (e.g., the amount is positive, the balance is not negative).
 
-    - The separation of sender, receiver, and SMS makes the system scalable because one SMS can trigger several transactions.
+- The separation of sender, receiver, and SMS makes the system scalable because one SMS can trigger several transactions.
 
-    - The log table ensures system auditability, which is critical for financial systems.
+- The log table ensures system auditability, which is critical for financial systems.
 
 # Team Members
 1. Anglebert Shumbusho Ishimwe
