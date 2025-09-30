@@ -40,16 +40,6 @@
     "body": "*113*R*A bank deposit of 40000 RWF has been added to your mobile money account at 2024-05-11 18:43:49. Your NEW BALANCE :40400 RWF. Cash Deposit::CASH::::0::250795963036.Thank you for using MTN MobileMoney.*EN#"
   },
   {
-    "id": 5,
-    "transaction_type": "CREDIT",
-    "amount": 2000.0,
-    "sender": "self",
-    "receiver": "Samuel Carter 14965 has been completed at 2024",
-    "timestamp": "2024-05-11T18:48:49",
-    "readable_timestamp": "11 May 2024 6:48:49 PM",
-    "body": "TxId: 17818959211. Your payment of 2,000 RWF to Samuel Carter 14965 has been completed at 2024-05-11 18:48:42. Your new balance: 38,400 RWF. Fee was 0 RWF.Kanda*182*16# wiyandikishe muri poromosiyo ya BivaMoMotima, ugire amahirwe yo gutsindira ibihembo bishimishije."
-  },
-  {
     "id": 6,
     "transaction_type": "CREDIT",
     "amount": 10000.0,
@@ -16910,13 +16900,12 @@
     "body": "TxId: 37832903831. Your payment of 24,900 RWF to Robert Brown 23478 has been completed at 2025-01-16 00:13:22. Your new balance: 4,900 RWF. Fee was 0 RWF."
   },
   {
-    "transaction_type": "DEBIT",
-    "amount": 10000.0,
+    "transaction_type": "CREDIT",
+    "amount": 1000,
     "sender": "Alice",
-    "receiver": "John Doe 12345 has been completed at 2025",
-    "timestamp": "2025-09-30T16:10:00",
-    "readable_timestamp": "30 Sep 2025 04:10:00 PM",
-    "body": "TxId: 9283749283. Your payment of 10,000 RWF to John Doe 12345 has been completed at 2025-09-30 16:10:00. Your new balance: 50,000 RWF. Fee was 100 RWF.",
+    "receiver": "Bob",
+    "timestamp": "2025-09-30T12:00:00",
+    "body": "Test",
     "id": 1692
   }
 ]
