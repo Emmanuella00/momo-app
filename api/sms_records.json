@@ -16907,5 +16907,14 @@
     "timestamp": "2025-09-30T12:00:00",
     "body": "Test",
     "id": 1692
+  },
+  {
+    "transaction_type": "CREDIT",
+    "amount": 1000,
+    "sender": "Alice",
+    "receiver": "Bob",
+    "timestamp": "2025-09-30T12:00:00",
+    "body": "Test",
+    "id": 1693
   }
 ]
