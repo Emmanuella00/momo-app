@@ -190,3 +190,27 @@ Status: `204 No Content`
 - `400 Bad Request` – Invalid ID
 
 ---
+## DSA: Search Efficiency Comparison
+
+We compared two strategies to find a transaction by `id` using the dataset parsed from `api/modified_sms_v2.xml`:
+
+- Linear Search: scans the list sequentially (O(n)).
+- Dictionary Lookup: builds an index `id -> transaction` once, then O(1) average lookup.
+
+How to run the benchmark:
+
+```bash
+python -m dsa.search_performance 
+```
+or 
+
+```bash
+python3 -m dsa.search_performance
+```
+Expected results: dictionary lookup is consistently faster than linear search as the list grows, because hash table access is average-case O(1), while linear search is O(n).
+
+Potential alternatives:
+- Balanced trees (e.g., B-tree, AVL, Red-Black) for ordered lookups and range queries (O(log n)).
+- Skip lists with probabilistic balancing (O(log n)).
+- Tries for prefix-based keys.
+
